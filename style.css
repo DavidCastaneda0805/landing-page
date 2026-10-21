@@ -1,0 +1,162 @@
+/* DERO PRINT — estilos sin librerías externas */
+:root {
+  --morado-oscuro: #2b1945;
+  --morado: #56367b;
+  --morado-vivo: #7e48aa;
+  --lavanda: #f4eefb;
+  --texto: #302545;
+  --secundario: #6c627a;
+  --borde: #e8ddf0;
+  --sombra: 0 18px 48px rgba(50, 28, 83, .12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: var(--texto);
+  background: #fff;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; }
+a:focus-visible { outline: 3px solid #bc94e8; outline-offset: 4px; }
+
+/* Encabezado */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 12px max(6%, calc((100vw - 1200px)/2));
+  background: rgba(43, 25, 69, .97);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 7px 25px rgba(31, 16, 54, .14);
+}
+.marca { display: inline-flex; align-items: center; gap: 13px; color: white; font-size: 18px; font-weight: 800; letter-spacing: .6px; }
+.marca img { width: 57px; height: 55px; padding: 5px; object-fit: contain; background: #fff; border-radius: 13px; }
+nav { display: flex; gap: 10px; }
+nav a { color: #f5ebff; font-size: 14px; font-weight: 600; padding: 9px 15px; border-radius: 9px; transition: background .2s, color .2s; }
+nav a:hover { background: rgba(255,255,255,.13); color: white; }
+
+/* Portada */
+.principal {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(35px, 5vw, 85px);
+  min-height: 610px;
+  padding: 95px max(6%, calc((100vw - 1200px)/2));
+  background: linear-gradient(125deg, #fbf9fe 0%, #f2e9fa 55%, #eadcf6 100%);
+}
+.principal::before, .principal::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+.principal::before { width: 480px; height: 480px; top: -300px; right: -130px; background: rgba(133, 81, 177, .12); }
+.principal::after { width: 300px; height: 300px; bottom: -205px; left: -115px; background: rgba(148, 103, 190, .12); }
+.contenido { flex: 1 1 55%; max-width: 650px; }
+.etiqueta {
+  display: inline-block;
+  margin: 0;
+  padding: 7px 14px;
+  color: #62398d;
+  background: rgba(114, 65, 159, .10);
+  border: 1px solid rgba(114, 65, 159, .12);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+h1 { margin: 23px 0 20px; font-size: clamp(38px, 4.8vw, 64px); line-height: 1.09; letter-spacing: -1.8px; color: var(--morado-oscuro); }
+.contenido > p:not(.etiqueta) { max-width: 530px; margin: 0 0 32px; color: #60536e; font-size: clamp(16px, 1.6vw, 18px); }
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #75449f, #513076);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 750;
+  box-shadow: 0 9px 22px rgba(89, 47, 130, .22);
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.boton:hover { transform: translateY(-3px); box-shadow: 0 13px 28px rgba(89,47,130,.27); filter: brightness(1.08); }
+.imagen-principal {
+  display: block;
+  flex: 0 1 43%;
+  width: 43%;
+  max-width: 500px;
+  height: 355px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: 6px solid rgba(255,255,255,.85);
+  box-shadow: 0 28px 58px rgba(52, 31, 85, .22);
+  transform: rotate(1.5deg);
+  transition: transform .3s;
+}
+.imagen-principal:hover { transform: rotate(0deg) scale(1.015); }
+
+/* Tarjetas */
+.beneficios { padding: 83px max(6%, calc((100vw - 1200px)/2)) 95px; }
+h2 { margin: 0 0 33px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; letter-spacing: -.7px; color: var(--morado-oscuro); }
+.tarjetas { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+.tarjeta {
+  padding: 32px 28px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 19px;
+  box-shadow: 0 5px 20px rgba(54, 33, 78, .045);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.tarjeta:hover { transform: translateY(-7px); box-shadow: var(--sombra); border-color: #d6bce9; }
+.emoji { display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; margin-bottom: 15px; font-size: 30px; border-radius: 16px; background: var(--lavanda); }
+.tarjeta h3 { margin: 0 0 10px; font-size: 20px; color: #382353; }
+.tarjeta p { margin: 0; color: var(--secundario); font-size: 15px; }
+
+/* Información y cierre */
+.contacto { padding: 78px 6% 85px; text-align: center; background: linear-gradient(125deg, #f8f4fc, #efe4f8); border-top: 1px solid var(--borde); }
+.contacto h2 { margin-bottom: 16px; }
+.contacto p { max-width: 550px; margin: 0 auto 29px; color: var(--secundario); }
+footer { padding: 30px 20px; background: var(--morado-oscuro); color: #f6efff; text-align: center; font-size: 14px; }
+footer p { margin: 4px 0; }
+footer p + p { color: #cbb9df; font-size: 12px; }
+
+/* Pantallas medianas */
+@media (max-width: 950px) {
+  .principal { gap: 25px; min-height: 520px; padding-block: 75px; }
+  .imagen-principal { height: 300px; }
+  .tarjeta { padding: 26px 22px; }
+}
+/* Celulares */
+@media (max-width: 700px) {
+  .encabezado { padding: 12px 5%; }
+  .marca { font-size: 14px; gap: 8px; }
+  .marca img { width: 44px; height: 43px; padding: 3px; }
+  nav { gap: 2px; }
+  nav a { padding: 8px 7px; font-size: 12px; }
+  .principal { flex-direction: column; align-items: stretch; padding: 65px 6% 70px; min-height: auto; gap: 35px; }
+  .contenido { max-width: none; }
+  h1 { font-size: clamp(36px, 9vw, 50px); letter-spacing: -1.2px; }
+  .imagen-principal { flex: none; width: 100%; max-width: none; height: 260px; transform: none; }
+  .imagen-principal:hover { transform: none; }
+  .beneficios { padding: 60px 6% 70px; }
+  .tarjetas { grid-template-columns: 1fr; gap: 16px; }
+  .contacto { padding: 65px 6%; }
+}
+@media (max-width: 360px) {
+  .marca span { font-size: 12px; }
+  nav a { font-size: 11px; padding-inline: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
