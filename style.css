@@ -118,9 +118,21 @@ h2 { margin: 0 0 33px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; lett
   transition: transform .25s, box-shadow .25s, border-color .25s;
 }
 .tarjeta:hover { transform: translateY(-7px); box-shadow: var(--sombra); border-color: #d6bce9; }
-.emoji { display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; margin-bottom: 15px; font-size: 30px; border-radius: 16px; background: var(--lavanda); }
 .tarjeta h3 { margin: 0 0 10px; font-size: 20px; color: #382353; }
 .tarjeta p { margin: 0; color: var(--secundario); font-size: 15px; }
+
+.emoji {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 18px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .emoji {
+    transform: scale(1.15);
+}
 
 /* Información y cierre */
 .contacto { padding: 78px 6% 85px; text-align: center; background: linear-gradient(125deg, #f8f4fc, #efe4f8); border-top: 1px solid var(--borde); }
